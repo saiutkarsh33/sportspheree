@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
-const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
+const PromptCard = ({ post, handleEdit, handleDelete}) => {
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();
@@ -19,6 +19,13 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
+
+  const handleTagClick = () => {
+    router.push(`/tag-posts/${post.tag}`);
+  };
+  
+  
+  
 
   const handleCopy = () => {
     setCopied(post.prompt);
@@ -51,13 +58,12 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           </div>
         </div>
 
-       
       </div>
 
       <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
-        onClick={() => handleTagClick && handleTagClick(post.tag)}
+        onClick={ handleTagClick}
       >
         #{post.tag}
       </p>

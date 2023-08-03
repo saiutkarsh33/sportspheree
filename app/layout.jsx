@@ -5,7 +5,7 @@ import Provider from '@components/Provider'
 
 
 export const metadata = {
-    title: "sportsphere",
+    title: "sportspheree",
     description: "Discover & Share Sports News and Opinions "
 
 }

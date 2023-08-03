@@ -4,14 +4,15 @@ const Home = () => {
   return (
     <section className = "w-full flex-center flex-col">
     <h1 className= "head_text text-center">
-        Post & Share 
+        Welcome to Sportspheree! 
         <br className = "max-md:hidden" />
-        <span className = "blue_gradient text-center"> Sports Buzz, Transfer Rumours and Bold Hot takes!</span>
+        <span className = "blue_gradient text-center"> Sports Buzz,Rumours and Bold Hot takes!</span>
           
        
     </h1>
     <p className= "desc text-center">
-        sportspheree is an open-source platform for sports fans to discover and share all the latest news, rumours and opinions in the sports world.
+        Post & Share today!
+        Below are some of our current posts!
     </p>
 
     <Feed /> 

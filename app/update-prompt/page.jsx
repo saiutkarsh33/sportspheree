@@ -33,12 +33,14 @@ const UpdatePrompt = () => {
 
     if (!promptId) return alert("Missing PromptId!");
 
+    const tag = post.tag.startsWith('#') ? post.tag.slice(1) : post.tag;
+
     try {
       const response = await fetch(`/api/prompt/${promptId}`, {
         method: "PATCH",
         body: JSON.stringify({
           prompt: post.prompt,
-          tag: post.tag,
+          tag: tag,
         }),
       });
 

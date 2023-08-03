@@ -17,13 +17,15 @@ const CreatePrompt = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const tag = post.tag.startsWith('#') ? post.tag.slice(1) : post.tag;
+
     try {
       const response = await fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
-          tag: post.tag,
+          tag: tag,
         }),
       });
 
