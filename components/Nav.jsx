@@ -19,23 +19,28 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className='flex-between w-full mb-16 pt-3'>
-      <Link href='/' className='flex gap-2 flex-center'>
-        <Image
-          src='/assets/images/logo.svg'
-          alt='logo'
-          width={30}
-          height={30}
-          className='object-contain'
-        />
-        <p className='logo_text'>sportspheree</p>
-      </Link>
+    <nav className='flex-between w-full my-6 py-5 '>
+      <Link href='/' className='logo_container'>
+  <Image
+    src='/assets/images/logo.svg'
+    alt='logo'
+    width={30}
+    height={30}
+    className='object-contain'
+  />
+  <p className='logo_text'>sportspheree</p>
+</Link>
 
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
         {session?.user ? (
-          <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-prompt' className='blue_btn'>
+          <div className='flex gap-3 md:gap-5 pl-3'>
+            <Link href='/view-feed' className='white_btn'>
+              View Feed
+            </Link>
+
+
+            <Link href='/create-prompt' className='white_btn'>
               Create Post
             </Link>
 
@@ -63,7 +68,7 @@ const Nav = () => {
                   onClick={() => {
                     signIn(provider.id);
                   }}
-                  className='blue_btn'
+                  className='white_btn'
                 >
                   Sign in
                 </button>
@@ -94,12 +99,21 @@ const Nav = () => {
                 >
                   My Profile
                 </Link>
+
+                <Link
+                  href='/view-feed'
+                  className='dropdown_link'
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  View Feed
+                </Link>
+
                 <Link
                   href='/create-prompt'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
                 >
-                  Create Prompt
+                  Create Post
                 </Link>
                 <button
                   type='button'
@@ -107,7 +121,8 @@ const Nav = () => {
                     setToggleDropdown(false);
                     signOut();
                   }}
-                  className='mt-5 w-full blue_btn'
+                  className='mt-5 blue-button'
+
                 >
                   Sign Out
                 </button>

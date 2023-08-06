@@ -18,26 +18,16 @@
   pointer-events: none;
 }
 
-.main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
-  position: absolute;
-  content: "";
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
+
 
 .main:after {
   content: "";
-  background-image: url("/assets/images/grid.svg");
+  background-color: rgba(96, 165, 250, 1); /* Converted #1DA1F2 to rgba and set alpha channel to 1 */
   z-index: 1;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
-  opacity: 0.4;
-  filter: invert(1);
 }
 
 .gradient {
@@ -51,9 +41,9 @@
       transparent 0%
     ),
     radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, rgb(58, 185, 253) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, rgb(90, 176, 252) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, rgb(149, 191, 228) 0px, transparent 50%),
     radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
     radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
   position: absolute;
@@ -61,8 +51,8 @@
   width: 100%;
   height: 100%;
   filter: blur(100px) saturate(150%);
-  top: 80px;
-  opacity: 0.15;
+  
+  opacity: 0.4;
 }
 
 @media screen and (max-width: 640px) {
@@ -85,9 +75,10 @@
   @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
-.blue_btn {
-    @apply rounded-full border border-blue-500 bg-blue-500 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-blue-500 text-center text-sm font-inter flex items-center justify-center;
-  }
+.white_btn {
+  @apply rounded-full  bg-white py-1.5 px-5 text-black transition-all hover:bg-blue-500 hover:text-white text-center text-sm font-inter flex items-center justify-center;
+}
+
   
 
 .head_text {
@@ -142,7 +133,11 @@
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide bg-white rounded-full px-2 py-1;
+}
+
+.logo_container {
+  @apply bg-white rounded-full px-2 py-1 flex items-center gap-2;
 }
 
 .dropdown {
@@ -153,9 +148,8 @@
   @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
 }
 
-/* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
 }
 
 .flex-center {
@@ -173,3 +167,41 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+.green-button {
+  @apply font-inter text-sm text-white py-2 px-4 rounded bg-green-500 cursor-pointer hover:bg-green-700;
+}
+
+.orange-button {
+  @apply font-inter text-sm text-white py-2 px-4 rounded bg-orange-500 cursor-pointer hover:bg-orange-700;
+}
+
+.blue-button {
+  @apply w-full text-white py-2 px-4 rounded bg-blue-500 cursor-pointer hover:bg-blue-700;
+}
+
+
+.hero {
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+}
+
+.hero__title {
+  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+}
+
+.hero__subtitle {
+  @apply text-[27px] text-black font-light mt-5;
+}
+
+.hero__image-container {
+  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+}
+
+.hero__image {
+  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+}
+
+.tag_gradient {
+  @apply bg-gradient-to-r from-green-800 to-blue-800 bg-clip-text text-transparent;
+}
+

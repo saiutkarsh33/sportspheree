@@ -13,7 +13,7 @@ const Form = ({
   return (
     <section className= 'w-full max-w-full flex-start flex-col'>
         <h1 className = "head_text text-left">
-            <span className = "blue_gradient">{type} Post</span>
+        <span >{type} Post</span>
         </h1>
     <p className= "desc text-left max-w-md">
      {type} and share any sports related news, opinion or transfer rumour! What is going on in your sports world?
@@ -53,7 +53,7 @@ const Form = ({
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
             placeholder='#tag'
             required
-            className='form_input '
+            className='form_input italic'
           />
 
 
@@ -61,14 +61,14 @@ const Form = ({
         </label>
 
         <div className = "flex-end mx-3 mb-5 gap-4">
-         <Link href= "/" className = 'text-gray-500-text-sm px-5 py-1.5 text-sm bg-primary-orange rounded-full'>
+         <Link href= "/" className = 'text-black-text-sm px-5 py-1.5 text-sm bg-red-500 rounded-full'>
           Cancel
          </Link>
 
          <button
           type = "submit"
           disabled= {submitting}
-          className = "px-5 py-1.5 text-sm bg-primary-blue rounded-full  text-white"
+          className = "px-5 py-1.5 text-sm bg-blue-400 rounded-full  text-white"
          >
             {submitting ? `${type}...` : type}
 

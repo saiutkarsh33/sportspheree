@@ -4,7 +4,7 @@ const TagPosts = ({ tag, posts, handleEdit, handleDelete}) => {
   return (
     <section className='w-full'>
       <h1 className='head_text text-left'>
-        <span className='blue_gradient'>Posts with tag: {tag}</span>
+        <span className='tag_gradient'>Posts with tag: {tag}</span>
       </h1>
 
       <div className='mt-10 prompt_layout'>

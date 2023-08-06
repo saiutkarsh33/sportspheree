@@ -2,33 +2,31 @@
 
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useSearchParams} from "next/navigation";
+
 import TagPosts from "@components/TagPosts";
 
-const TagPrompts = () => {
-  const router = useRouter();
-
-  // Define tag after checking if the router is ready
-  const tag = "MM7"
+const TagPrompts = ({ params }) => {
+  const searchParams = useSearchParams();
+  
+  const tag = params?.tag  
 
   console.log("Tag:", tag);
 
   const [tagPosts, setTagPosts] = useState([]);
 
   useEffect(() => {
-    if (!router.isReady) return; // Exit early if the router is not ready
+    const fetchPosts = async () => {
+      const response = await fetch(`/api/tags/${tag}/posts`);
+      const data = await response.json();
 
-    const fetchPostsByTag = async () => {
-      if (tag) {
-        const response = await fetch(`/api/tags/${tag}/posts`);
-        const data = await response.json();
-
-        setTagPosts(data);
-      }
+      setTagPosts(data);
+      console.log("Fetched posts:", data);
     };
 
-    fetchPostsByTag();
-  }, [tag, router.isReady]); // Refetch posts when tag changes or router becomes ready
+    if (tag) fetchPosts();
+
+  }, [tag]);
 
   return (
     <TagPosts
