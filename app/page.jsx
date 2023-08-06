@@ -23,10 +23,10 @@ const Home = () => {
         height={300}
         className='object-contain'
       />
-      <h1 className={`head_text text-center mb-6 md:mb-12 font-medium ${isDesktop ? 'text-4xl' : 'text-xl'}`}>
+      <h1 className={`head_text text-center mb-6 md:mb-12 font-medium text-5xl `}>
         Welcome to Sportspheree!   
         <br className="max-md:hidden" />
-        <span className={`block text-center text-white mt-4 md:mt-8 font-medium ${isDesktop ? 'text-3xl' : ''}`}>
+        <span className={`block text-center text-white mt-4 md:mt-8 font-medium  text-4xl md:text-5xl`}>
           Sports Buzz, Rumours and Bold Hot takes!
         </span>
       </h1>
@@ -39,6 +39,7 @@ const Home = () => {
 }
 
 export default Home;
+
 
 
 
