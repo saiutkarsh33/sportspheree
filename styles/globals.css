@@ -119,7 +119,7 @@
 
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply mt-24 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
 }
 
 /* Form Component */
@@ -203,5 +203,9 @@
 
 .tag_gradient {
   @apply bg-gradient-to-r from-green-800 to-blue-800 bg-clip-text text-transparent;
+}
+
+.feed_text {
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] sm:text-6xl;
 }
 

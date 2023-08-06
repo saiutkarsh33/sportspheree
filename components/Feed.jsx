@@ -82,6 +82,8 @@ const Feed = () => {
   return (
     <section className = "feed">
 
+<h2 className = "feed_text -mt-12 tag_gradient"> Your Feed</h2>
+
 <form className='relative w-full flex-center'>
         <input
           type='text'
