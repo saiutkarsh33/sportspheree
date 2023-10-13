@@ -36,40 +36,46 @@ const PromptCard = ({ post, handleEdit, handleDelete}) => {
 
   return (
     <div className='prompt_card'>
-      <div className='flex justify-between items-start gap-5'>
-        <div
-          className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
-          onClick={handleProfileClick}
-        >
-          <Image
-            src={post.creator.image}
-            alt='user_image'
-            width={40}
-            height={40}
-            className='rounded-full object-contain'
-          />
-
-          <div className='flex flex-col'>
-            <h3 className='font-satoshi font-semibold text-gray-900'>
-              {post.creator.username}
-            </h3>
-            <p className='font-inter text-sm text-gray-500'>
-              {post.creator.email}
-            </p>
+      {post && post.creator && (
+        <div className='flex justify-between items-start gap-5'>
+          <div
+            className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
+            onClick={handleProfileClick}
+          >
+            {post.creator.image ? (
+              <Image
+                src={post.creator.image}
+                alt='user_image'
+                width={40}
+                height={40}
+                className='rounded-full object-contain'
+              />
+            ) : (
+              <span className='text-gray-400 text-sm'>No Image</span>
+            )}
+  
+            <div className='flex flex-col'>
+              <h3 className='font-satoshi font-semibold text-gray-900'>
+                {post.creator.username || 'Unknown User'}
+              </h3>
+              <p className='font-inter text-sm text-gray-500'>
+                {post.creator.email || 'Unknown Email'}
+              </p>
+            </div>
           </div>
         </div>
-
-      </div>
-
-      <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
-      <p
+      )}
+  
+      {post && <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>}
+      
+      {post && <p
         className='font-inter text-sm blue_gradient cursor-pointer'
-        onClick={ handleTagClick}
+        onClick={handleTagClick}
       >
         #{post.tag}
-      </p>
-
-      {session?.user.id === post.creator._id && pathName === "/profile" && (
+      </p>}
+  
+      {post && post.creator && post.creator._id && session?.user.id === post.creator._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p
             className='green-button'
@@ -87,6 +93,7 @@ const PromptCard = ({ post, handleEdit, handleDelete}) => {
       )}
     </div>
   );
+  
 };
 
 export default PromptCard;

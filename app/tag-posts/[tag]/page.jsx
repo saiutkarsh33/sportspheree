@@ -2,12 +2,10 @@
 
 
 import { useEffect, useState } from "react";
-import { useSearchParams} from "next/navigation";
 
 import TagPosts from "@components/TagPosts";
 
 const TagPrompts = ({ params }) => {
-  const searchParams = useSearchParams();
   
   const tag = params?.tag  
 
